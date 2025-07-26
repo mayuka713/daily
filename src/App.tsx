@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Counter from './components/CounterApp';
 
 const omikujiResults = ['大吉', '中吉', '小吉', '吉', '末吉', '凶', '大凶'];
 
@@ -17,6 +18,7 @@ const getResultStyle = (result: string | null) => {
 
 const App: React.FC = () => {
   const [result, setResult] = useState<string | null>(null);
+  const [ mode, setMode ] = useState<'omikuji' | 'counter'>('omikuji');
 
   const drawOmikuji = () => {
     const randomIndex = Math.floor(Math.random() * omikujiResults.length);
@@ -27,27 +29,30 @@ const App: React.FC = () => {
 
   return (
     <div style={{ textAlign: 'center', fontFamily: 'sans-serif' }}>
-      <h1 style={{ color: 'pink' }}>おみくじアプリ</h1>
-      <button onClick={drawOmikuji}>
-        おみくじを引く❤️
-      </button>
+      <h1>ミニアプリ集</h1>
+    <div style={{marginBottom: '20px'}}>
+      <button onClick={() => setMode('omikuji')}>おみくじ</button>
+      <button onClick={() => setMode('counter')} style={{ marginLeft: '10px'}}>カウント</button>
+      </div>
+
+      <h1 style={{ color: 'red' }}>おみくじアプリ🎍</h1>
+      <button onClick={drawOmikuji}>おみくじを引く</button>
+
       {result && (
         <div style={{ animation: 'fadeIn 1s', color: resultStyle.color, fontSize: '24px' }}>
           結果: <strong>{result}</strong>{resultStyle.emoji}
           <br />
+
           <button
             onClick={() => setResult(null)}
             style={{ marginTop: '10px' }}
           >
             もう一度引く
           </button>
+
         </div>
       )}
-      {result && (
-        <div>
-          結果: <strong>{result}</strong>
-        </div>
-      )}
+      {mode === 'counter' && <Counter />}
     </div>
   );
 };
