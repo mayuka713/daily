@@ -25,9 +25,11 @@ const WeatherApp: React.FC = () => {
             setWeather(data);
             setError(null);
         } catch (err: any) {
-            setError(err.message);
+            console.error('エラー発生:', error);
             setWeather(null);
+            setError(err.message);
         }
+        {error && <p style={{ marginTop: '20px', color: 'red'}}>{error}</p>}
     };
 return (
     <div style={{ textAlign:'center', marginTop: '50px'}}>
@@ -38,7 +40,7 @@ return (
     onChange={(e) => setCity(e.target.value)}
     style={{ padding: '8px'}}
     />
-
+<button onClick={fetchWeather}>検索</button>
     {error && <p style={{ marginTop: '20px'}}></p>}
 
     {weather && (
