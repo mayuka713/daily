@@ -4,6 +4,7 @@ import { OmikujiData } from '../types/Omikuji';
 const OmikujiList: OmikujiData[] = [
     { result: '大吉', message: '今日は最高の日です！'},
     { result: '吉', message: '今日はいい日です'},
+    { result: '小吉', message: 'まあまあいい日です'},
 ];
 
 const Omikuji: React.FC = () => {
@@ -16,11 +17,11 @@ const Omikuji: React.FC = () => {
 
     return (
         <>
-        <h2>おみくじアプリ</h2>
+        <h2>おみくじアプリです</h2>
         <button onClick={drawOmikuji}>おみくじを引く</button>
         {result && (
             <>
-            <h3>{result.result}</h3>
+            <h3>結果は{result.result}</h3>
             <p>{result.message}</p>
             </>
         )}
