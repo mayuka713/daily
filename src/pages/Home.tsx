@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../pages/Home.css';
-
+import kitty from "../public/kitty.png";
 
 const Home = () => {
     return (
   <div className='home-container'>
-           <h1 className="neon-text">ミニアプリ集へようこそ</h1>
-           <div className="kitty-gal">
+           <h1 className='neon-text'>ミニアプリ集へようこそ</h1>
+           <div className='kitty-gal'>
+         <img src='/images/kitty.png' alt="キティ" />
   <div className="face"></div>
   <div className="bow"></div>
   <div className="eyes"></div>
