@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { OmikujiData } from '../types/Omikuji';
+import styles from  '../pages/Omikuji.module.css';
 
 const OmikujiList: OmikujiData[] = [
     { result: '大吉', message: '今日は最高の日です！'},
@@ -16,16 +17,16 @@ const Omikuji: React.FC = () => {
     };
 
     return (
-        <>
-        <h2>おみくじアプリです</h2>
-        <button onClick={drawOmikuji}>おみくじを引く</button>
+        <div className={styles.container}>
+        <h2 className={styles.title}>おみくじアプリです</h2>
+        <button className={styles.omikujiButton}onClick={drawOmikuji}>おみくじを引く</button>
         {result && (
             <>
             <h3>結果は{result.result}</h3>
             <p>{result.message}</p>
             </>
         )}
-        </>
+        </div>
     );
 };
 

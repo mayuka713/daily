@@ -6,22 +6,12 @@
 }
 
 .neon-text {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: #fff0f5;
-    font-family: 'Yusei Magic';
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     padding: 10px 20px;
     border-radius: 20px;
-
-    text-shadow:
-        1px 1px 0 #ff99cc,
-        2px 2px 0 #ff66aa,
-        3px 3px 0 #ff3399,
-        4px 4px 5px #cc0066,
-        0 0 10px #ff66cc,
-        0 0 20px #ff99cc,
-        0 0 40px #ff99cc;
-
     background: linear-gradient(to bottom, #ffccdd, #ff99cc);
     box-shadow:
         inset 0 1px 3px rgba(255, 255, 255, 0.6),
@@ -35,3 +25,17 @@
 .puffy-neon-text:hover {
     transform: scale(1.05);
 }
+
+button {
+    background-color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #ffebf1;
+    transform: translateY(-2px);
+  }
