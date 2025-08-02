@@ -14,7 +14,10 @@ const WeatherApp: React.FC = () => {
 
     const fetchWeather = async () => {
         try {
-            const apiKey = 'a31533bfa62bc8a16744a2328d635875';
+            const apiKey = 'process.env.REACT_APP_WEATHER_API_KEY';
+            if(!apiKey) {
+                throw new Error('API key is missing. Please set REACT_APP_WEATHER_API_KEY in your environment.');
+            }
             const response = await fetch(
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=ja`
             );
@@ -25,11 +28,10 @@ const WeatherApp: React.FC = () => {
             setWeather(data);
             setError(null);
         } catch (err: any) {
-            console.error('エラー発生:', error);
+            console.error('エラー発生:', err);
             setWeather(null);
             setError(err.message);
         }
-        {error && <p style={{ marginTop: '20px', color: 'red'}}>{error}</p>}
     };
 return (
     <div style={{ textAlign:'center', marginTop: '50px'}}>
@@ -41,7 +43,6 @@ return (
     style={{ padding: '8px'}}
     />
 <button onClick={fetchWeather}>検索</button>
-    {error && <p style={{ marginTop: '20px'}}></p>}
 
     {weather && (
         <div style={{ marginTop: '20px'}}>

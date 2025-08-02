@@ -31,3 +31,5 @@ const Omikuji: React.FC = () => {
 };
 
 export default Omikuji;
+
+
