@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/WeatherApp.css';
 
 type WeatherData = {
     name: string;
